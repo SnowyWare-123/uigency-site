@@ -113,48 +113,71 @@
       </div>
     </section>
 
-    <!-- Kontakt -->
-    <section id="kontakt">
-      <h2>Kontakt & Angebot</h2>
-      <p class="sub">15-Minuten-Beratung unverbindlich & kostenlos.</p>
-      <div class="contact">
-        <form class="panel" onsubmit="return sendMailto(event)">
-          <div class="row">
-            <div>
-              <label for="name">Ihr Name</label>
-              <input id="name" name="name" required>
-            </div>
-            <div>
-              <label for="company">Firma</label>
-              <input id="company" name="company">
-            </div>
-          </div>
-          <div class="row">
-            <div>
-              <label for="email">E-Mail</label>
-              <input id="email" name="email" type="email" required>
-            </div>
-            <div>
-              <label for="phone">Telefon</label>
-              <input id="phone" name="phone">
-            </div>
-          </div>
-          <div>
-            <label for="msg">Nachricht</label>
-            <textarea id="msg" name="msg"></textarea>
-          </div>
-          <div class="cta-row">
-            <button class="btn primary" type="submit">Angebot anfordern</button>
-            <a class="btn ghost" href="https://wa.me/4915212345678">WhatsApp</a>
-            <a class="btn ghost" href="tel:+4915212345678">Anrufen</a>
-          </div>
-        </form>
-        <div class="panel">
-          <h3>Kontakt</h3>
-          <p class="muted">UIgency · Heidelberg · Rhein-Neckar</p>
+   <!-- Kontakt -->
+<section id="kontakt">
+  <h2>Kontakt & Angebot</h2>
+  <p class="sub">15-Minuten-Beratung unverbindlich & kostenlos.</p>
+  <div class="contact">
+    <form class="panel" onsubmit="return sendMailto(event)">
+      <div class="row">
+        <div>
+          <label for="name">Ihr Name</label>
+          <input id="name" name="name" required placeholder="Max Mustermann" />
+        </div>
+        <div>
+          <label for="company">Firma (optional)</label>
+          <input id="company" name="company" placeholder="Malerbetrieb Muster GmbH" />
         </div>
       </div>
-    </section>
+      <div class="row">
+        <div>
+          <label for="email">E-Mail</label>
+          <input id="email" name="email" type="email" required placeholder="max@beispiel.de" />
+        </div>
+      </div>
+      <div>
+        <label for="msg">Kurze Nachricht</label>
+        <textarea id="msg" name="msg" placeholder="Kurz beschreiben, was Sie brauchen…"></textarea>
+      </div>
+      <div class="cta-row">
+        <button class="btn primary" type="submit">Angebot anfordern</button>
+        <!-- WhatsApp: hier deine echte Nummer einsetzen -->
+        <a class="btn ghost" href="https://wa.me/4915212345678" target="_blank" rel="noopener">WhatsApp schreiben</a>
+      </div>
+      <p class="note">Mit dem Senden erklären Sie sich einverstanden, dass wir Ihre Angaben zur Beantwortung Ihrer Anfrage verwenden.</p>
+    </form>
+
+    <div class="panel">
+      <h3>Kontakt</h3>
+      <p class="muted">UIgency · Heidelberg · Rhein-Neckar</p>
+      <ul>
+        <li><span class="check">✓</span> Schnelle Umsetzung & klare Preise</li>
+        <li><span class="check">✓</span> Persönlicher Ansprechpartner</li>
+        <li><span class="check">✓</span> Optional: Hosting & Pflege ab 29 €</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  function sendMailto(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const msg = document.getElementById('msg').value.trim();
+
+    const subject = encodeURIComponent('Anfrage Website – UIgency');
+    const body = encodeURIComponent(
+      `Name: ${name}\nFirma: ${company}\nE-Mail: ${email}\n\nNachricht:\n${msg}`
+    );
+
+    // 👉 HIER deine echte Mailadresse einsetzen:
+    window.location.href = `mailto:hello@uigency.de?subject=${subject}&body=${body}`;
+    return false;
+  }
+</script>
+
   </main>
 
   <!-- Footer -->
