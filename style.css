@@ -92,3 +92,35 @@ footer{padding:40px 0;color:var(--muted)}
   h1{font-size:26px;}
   .btn{padding:10px 12px;border-radius:12px;}
 }
+/* === Warum UIgency (Features) === */
+.features{display:grid;gap:18px}
+@media(min-width:900px){
+  .features{grid-template-columns:repeat(4,1fr)}
+}
+.feat{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+.feat h3{margin:6px 0 6px;font-size:16px}
+.feat p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.check{
+  width:18px;height:18px;border-radius:6px;
+  background:rgba(34,197,94,.12);
+  display:grid;place-items:center;
+  border:1px solid rgba(34,197,94,.35);
+  margin-bottom:8px;
+}
+
+/* Subtile Hover-Interaktion für Features */
+.feat:hover{
+  transform:translateY(-6px);
+  box-shadow:0 14px 30px rgba(0,0,0,.45);
+  border:1px solid transparent;
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    linear-gradient(135deg, var(--brand), #a459ed) border-box;
+}
